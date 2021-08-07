@@ -7,7 +7,7 @@ npm install
 ```
 
 ### You need to create config.json file
--config.json
+- config.json
 ```js
 {
     "token": "YOUR_DISCORD_TOKEN"
