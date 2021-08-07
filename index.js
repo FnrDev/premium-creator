@@ -1,30 +1,27 @@
-const { default: axios } = require("axios");
+
+const fetch = require("node-fetch");
 const config = require('./config.json')
 
 async function getData() {
-    const req = await axios({
-        url: "https://discord.com/api/v9/applications",
+    const req = await fetch("https://discord.com/api/v9/applications", {
         method: "POST",
         headers: {
-            Authorization: config.token
+            "Authorization": config.token,
+            body: JSON.stringify({
+                name: 'fnrtest' // bot name you want to create
+            })
         },
         "content-type": "application/json",
-        data: {
-            name: 'fnrtest' // bot name you want to create
-        },
     })
     const data = req.data
-    console.log(data)
-    const createBot = await axios({
-        url: `https://discord.com/api/v9/applications/${data.id}/bot`,
+    const createBot = await fetch(`https://discord.com/api/v9/applications/${data.id}/bot`, {
         method: "POST",
         headers: {
-            Authorization: config.token
+            "Authorization": config.token
         },
         "content-type": "applicaction/json",
     })
-    const botData = createBot.data;
-    console.log(botData)
+    console.log(createBot.data)
 }
 
 getData()
