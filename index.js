@@ -11,7 +11,6 @@ async function generateBot(token, name) {
     headers: {
       Authorization: token,
     },
-    "content-type": "application/json",
     data: {
       name,
     },
