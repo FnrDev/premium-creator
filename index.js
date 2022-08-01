@@ -25,7 +25,6 @@ async function generateBot(token, name) {
     headers: {
       Authorization: token,
     },
-    "content-type": "applicaction/json",
   }).catch(console.error);
 
   const getToken = await axios({
