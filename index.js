@@ -1,6 +1,9 @@
 const { default: axios } = require("axios");
 const config = require("./config.json");
-
+/**
+ * @param {string} token - The account token 
+ * @param {string} name - The bot name to create
+ */
 async function generateBot(token, name) {
   const req = await axios({
     url: "https://discord.com/api/applications",
