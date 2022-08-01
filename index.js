@@ -38,4 +38,4 @@ async function generateBot(token, name) {
   console.log(getToken.data);
 }
 
-generateBot(config.token, "botname"); // first parameter (account's token), second parameter (bot's name)
+generateBot(config.token, "someCoolName");
