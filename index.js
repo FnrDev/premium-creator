@@ -1,7 +1,6 @@
 const { default: axios } = require("axios");
 const config = require("./config.json");
 const fs = require("fs");
-console.clear();
 console.log("Starting...");
 /**
  * @param {string} token - The account token
