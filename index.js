@@ -1,7 +1,10 @@
 const { default: axios } = require("axios");
 const config = require("./config.json");
+const fs = require("fs");
+console.clear();
+console.log("Starting...");
 /**
- * @param {string} token - The account token 
+ * @param {string} token - The account token
  * @param {string} name - The bot name to create
  */
 async function generateBot(token, name) {
@@ -13,12 +16,15 @@ async function generateBot(token, name) {
     },
     data: {
       name,
+      bot_public: false,
+      bot_require_code_grant: false,
+      flags: 565248,
     },
   }).catch(console.error);
-    
+
   const data = req.data;
   console.log(data);
-    
+
   await axios({
     url: `https://discord.com/api/applications/${data.id}/bot`,
     method: "POST",
