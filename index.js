@@ -16,7 +16,7 @@ async function generateBot(token, name) {
     },
     data: {
       name,
-      bot_public: false,
+      bot_public: true,
       bot_require_code_grant: false,
       flags: 565248,
     },
